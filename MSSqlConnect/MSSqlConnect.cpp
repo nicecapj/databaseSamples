@@ -5,6 +5,7 @@
 #include <sql.h>
 #include <sqlext.h>
 #include <sal.h>
+#include <locale.h>
 
 
 /*******************************************/
@@ -94,7 +95,8 @@ int __cdecl wmain(int argc, _In_reads_(argc) WCHAR **argv)
 	RETCODE retCode = 0;
 	SQLSMALLINT numResult = 0;
 
-
+	//콘솔에 유니코드 한글 출력할수 있도록 추가
+	_wsetlocale(LC_ALL, L"korean");
 
 	//환경 설정 할당
 	if (SQLAllocHandle(SQL_HANDLE_ENV, SQL_NULL_HANDLE, &hEnv) == SQL_ERROR)
